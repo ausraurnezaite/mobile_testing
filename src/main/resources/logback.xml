@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{60} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="ALLURE" class="mobileTesting.util.appender.AllureAppender">
+        <prefix>test</prefix>
+    </appender>
+
+    <logger name="mobileTesting" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="mobileTesting" level="INFO" additivity="false">
+        <appender-ref ref="ALLURE"/>
+    </logger>
+    <root level="INFO">
+        <appender-ref ref="ALLURE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
