@@ -34,6 +34,18 @@ Preconditions:
 - Internet connection available
 - Appium server launched
 
+To get device data run in commandline:
+  - udid:
+  ```
+    adb devices                         ---> 53c6f423
+    adb tcpip 5555
+    adb connect 192.168.10.223          ---> 192.168.10.223:5555
+  ```
+  - app.package/app.activity:
+   ```
+    adb shell dumpsys window | find "mCurrentFocus"
+   ```
+
 To run tests in Maven:
 
 - Run test on virtual device: <code>mvn clean test -Dvirtual="true"</code>
